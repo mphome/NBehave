@@ -51,7 +51,7 @@ namespace NBehave.Narrator.Framework.Extensions
             }
 
             regex += "$";
-            return new Regex(regex, RegexOptions.Singleline | RegexOptions.IgnorePatternWhitespace);
+            return new Regex(regex, RegexOptions.Singleline | RegexOptions.IgnorePatternWhitespace | RegexOptions.IgnoreCase);
         }
 
         private static bool WordIsToken(string word)
@@ -72,7 +72,7 @@ namespace NBehave.Narrator.Framework.Extensions
             if (string.IsNullOrEmpty(regexOrTokenString))
                 return false;
 
-            if (regexOrTokenString.EndsWith("$") 
+            if (regexOrTokenString.EndsWith("$")
                 || regexOrTokenString.StartsWith("^")
                 || IsRegexWithNamedGroup.IsMatch(regexOrTokenString))
             {
